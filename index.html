@@ -6,7 +6,10 @@
       name="viewport"
       content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
     />
-    <link rel="stylesheet" href="https://giabao123123.github.io/trochoi/trochoi.css" />
+    <link
+      rel="stylesheet"
+      href="https://giabao123123.github.io/trochoi/trochoi.css"
+    />
     <link
       rel="apple-touch-icon"
       sizes="57x57"
@@ -781,7 +784,6 @@
         stopAllMusic();
       }
       let quiz = [
-        // ===== 1. LỄ HỘI – TÍN NGƯỠNG (8 CÂU) =====
         {
           question: "Lễ hội Tràng An được tổ chức để tri ân vị thần nào?",
           answers: [
@@ -857,8 +859,6 @@
           answers: ["Nguyễn Minh Không", "Vạn Hạnh", "Khuông Việt", "Không Lộ"],
           correct: 0,
         },
-
-        // ===== 2. VĂN HÓA – CỘNG ĐỒNG (5 CÂU) =====
         {
           question: "Ninh Bình từng là kinh đô của Việt Nam vào thế kỷ nào?",
           answers: ["Thế kỷ IX", "Thế kỷ X", "Thế kỷ XI", "Thế kỷ XII"],
@@ -892,8 +892,6 @@
           answers: ["2", "3", "4", "5"],
           correct: 1,
         },
-
-        // ===== 3. ĐỊA LÝ – TỰ NHIÊN (5 CÂU) =====
         {
           question: "Ninh Bình nằm ở ranh giới của những khu vực nào?",
           answers: [
@@ -929,8 +927,6 @@
           answers: ["50 km", "70 km", "90 km", "120 km"],
           correct: 2,
         },
-
-        // ===== 4. DU LỊCH – ẨM THỰC (6 CÂU) =====
         {
           question: "Danh thắng nào được mệnh danh là 'Hạ Long trên cạn'?",
           answers: [
@@ -971,8 +967,6 @@
           ],
           correct: 1,
         },
-
-        // ===== 5. KINH TẾ – PHÁT TRIỂN (6 CÂU) =====
         {
           question: "Khoáng sản có trữ lượng lớn nhất ở Ninh Bình là?",
           answers: ["Than đá", "Đá vôi", "Sắt", "Bô-xít"],
@@ -1016,17 +1010,16 @@
           correct: 1,
         },
       ];
-
       let toastTimer = null;
       quiz = quiz.sort(() => Math.random() - 0.5);
       let index = 0;
       let score = 0;
       let correctCount = 0;
-      let totalTime = 10 * 60; // 10 phút
+      let totalTime = 10 * 60;
       let timer;
-      const correctSound = new Audio("./amthanh/dung.mp3"); // đúng → "Yee!"
-      const wrongSound = new Audio("./amthanh/wrong.mp3"); // sai → "Ô ồ!"
-      const finishSound = new Audio("./amthanh/end.mp3"); // 🔊 âm thanh kết thúc
+      const correctSound = new Audio("./amthanh/dung.mp3");
+      const wrongSound = new Audio("./amthanh/wrong.mp3");
+      const finishSound = new Audio("./amthanh/end.mp3");
       function showToast(message, type) {
         const toast = document.getElementById("toast");
         if (toastTimer) {
@@ -1275,11 +1268,9 @@
         const total = quiz.length;
         const correctPercent = Math.round((correctCount / total) * 100);
         const wrongPercent = 100 - correctPercent;
-
         const timeUsed = 10 * 60 - totalTime;
         const minutes = Math.floor(timeUsed / 60);
         const seconds = timeUsed % 60;
-
         let rank, emoji;
         if (score >= total * 10 * 0.9) {
           rank = "Xuất sắc";
@@ -1294,10 +1285,8 @@
           rank = "Cần cố gắng";
           emoji = "💪";
         }
-
         const text = `
 🎮 QUIZ NINH BÌNH 🎮
-
 🏆 Điểm: ${score}
 ✅ Số câu đúng: ${correctCount}/${total}
 ❌ Số câu sai: ${wrongCount}
@@ -1305,10 +1294,8 @@
 📉 Tỷ lệ sai: ${wrongPercent}%
 ⏱ Thời gian: ${minutes} phút ${seconds} giây
 🎖 Xếp hạng: ${emoji} ${rank}
-
 🔥 Bạn có thể làm tốt hơn không? Thử ngay!
 `;
-
         if (navigator.clipboard && window.isSecureContext) {
           navigator.clipboard
             .writeText(text.trim())
